@@ -1,0 +1,26 @@
+{
+  "before-mobile": {
+    "performance": 75.0,
+    "accessibility": 75.0,
+    "lcp_ms": 9341.885,
+    "cls": 0
+  },
+  "before-desktop": {
+    "performance": 94.0,
+    "accessibility": 75.0,
+    "lcp_ms": 1676.695,
+    "cls": 0
+  },
+  "after-mobile": {
+    "performance": 100,
+    "accessibility": 93.0,
+    "lcp_ms": 1350.7605,
+    "cls": 0
+  },
+  "after-desktop": {
+    "performance": 100,
+    "accessibility": 93.0,
+    "lcp_ms": 320.6021,
+    "cls": 0
+  }
+}

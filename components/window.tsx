@@ -2,24 +2,24 @@
 
 import type React from "react"
 
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useState, useRef, useEffect, useCallback, lazy, Suspense } from "react"
 import type { AppWindow, DesktopRect } from "@/types"
 import { getApp } from "@/lib/apps-registry"
 import { useSystem } from "@/components/system-provider"
 
-import Notes from "@/components/apps/notes"
-import GitHub from "@/components/apps/github"
-import Safari from "@/components/apps/safari"
-import VSCode from "@/components/apps/vscode"
-import FaceTime from "@/components/apps/facetime"
-import Terminal from "@/components/apps/terminal"
-import Mail from "@/components/apps/mail"
-import YouTube from "@/components/apps/youtube"
-import Spotify from "@/components/apps/spotify"
-import Music from "@/components/apps/music"
-import Snake from "@/components/apps/snake"
-import Weather from "@/components/apps/weather"
-import Settings from "@/components/apps/settings"
+const Notes = lazy(() => import("@/components/apps/notes"))
+const GitHub = lazy(() => import("@/components/apps/github"))
+const Safari = lazy(() => import("@/components/apps/safari"))
+const VSCode = lazy(() => import("@/components/apps/vscode"))
+const FaceTime = lazy(() => import("@/components/apps/facetime"))
+const Terminal = lazy(() => import("@/components/apps/terminal"))
+const Mail = lazy(() => import("@/components/apps/mail"))
+const YouTube = lazy(() => import("@/components/apps/youtube"))
+const Spotify = lazy(() => import("@/components/apps/spotify"))
+const Music = lazy(() => import("@/components/apps/music"))
+const Snake = lazy(() => import("@/components/apps/snake"))
+const Weather = lazy(() => import("@/components/apps/weather"))
+const Settings = lazy(() => import("@/components/apps/settings"))
 
 const componentMap: Record<string, React.ComponentType<{ isDarkMode?: boolean }>> = {
   Notes,
@@ -307,7 +307,7 @@ export default function Window({
       <div className="relative flex-1 overflow-auto bg-background text-foreground">
         {!isActive && <div className="pointer-events-none absolute inset-0 z-10 bg-background/20" aria-hidden />}
         {AppComponent ? (
-          <AppComponent isDarkMode={isDarkMode} />
+          <Suspense fallback={<p role="status" className="p-6">Opening app…</p>}><AppComponent isDarkMode={isDarkMode} /></Suspense>
         ) : (
           <div className="p-6 text-sm text-muted-foreground">Content not available</div>
         )}

@@ -4,7 +4,9 @@ import { useState, useEffect } from "react"
 import { SystemProvider, useSystem } from "@/components/system-provider"
 import BootScreen from "@/components/boot-screen"
 import LoginScreen from "@/components/login-screen"
-import Desktop from "@/components/desktop"
+import { lazy, Suspense } from "react"
+import Portfolio from "@/components/portfolio"
+const Desktop = lazy(() => import("@/components/desktop"))
 import SleepScreen from "@/components/sleep-screen"
 import ShutdownScreen from "@/components/shutdown-screen"
 
@@ -12,7 +14,8 @@ type SystemState = "booting" | "login" | "desktop" | "sleeping" | "shutdown" | "
 
 function Shell() {
   const { brightness, isDarkMode, toggleDarkMode } = useSystem()
-  const [systemState, setSystemState] = useState<SystemState>("booting")
+  const [systemState, setSystemState] = useState<SystemState>("desktop")
+  const [exploring, setExploring] = useState(false)
 
   useEffect(() => {
     if (systemState === "booting" || systemState === "restarting") {
@@ -35,14 +38,14 @@ function Shell() {
           />
         )
       case "desktop":
-        return (
-          <Desktop
+        return exploring ? (
+          <Suspense fallback={<p role="status">Opening desktop…</p>}><button className="fixed top-10 right-4 z-[9998] rounded bg-white px-4 py-3 text-sm text-slate-900 shadow" onClick={() => setExploring(false)}>Back to portfolio</button><Desktop
             onLogout={() => setSystemState("login")}
             onSleep={() => setSystemState("sleeping")}
             onShutdown={() => setSystemState("shutdown")}
             onRestart={() => setSystemState("restarting")}
-          />
-        )
+          /></Suspense>
+        ) : <Portfolio onExplore={() => setExploring(true)} />
       case "sleeping":
         return <SleepScreen onWakeUp={() => setSystemState("login")} isDarkMode={isDarkMode} />
       case "shutdown":
