@@ -22,7 +22,7 @@ Graphify code-only run: `graphify update .` exited 0, producing 891 nodes and 1,
 
 ## Baseline observations
 
-Production `/` was captured in headless Chromium at 1440 and 390 pixels. The mobile desktop screenshot shows clipped menu bar and Dock; the initial boot and login delay access to work. One mobile Lighthouse run on the initial lock screen exited 0: Performance 75, Accessibility 75, FCP 0.9 s, LCP 9.3 s, TBT 0 ms, CLS 0; unused JavaScript estimate 135 KiB. A single desktop run scored Performance 93 and Accessibility 75, with LCP 1.7 s and CLS 0. These single runs are directional and do not measure the app windows or field INP. See `current/` for captures and raw Lighthouse output.
+Production `/` was captured in headless Chromium at 1440 and 390 pixels. The mobile desktop screenshot shows clipped menu bar and Dock; the initial boot and login delay access to work. One mobile Lighthouse run on the initial lock screen exited 0: Performance 75, Accessibility 75, FCP 0.9 s, LCP 9.3 s, TBT 0 ms, CLS 0; unused JavaScript estimate 135 KiB. A single desktop run scored Performance 93 and Accessibility 75, with LCP 1.7 s and CLS 0. These single runs are directional and do not measure the app windows or field INP. See `current/` for captures; raw Lighthouse reports are not included in this plan-only PR.
 
 ## Experience and copy
 
