@@ -1,0 +1,26 @@
+[
+  {
+    "label": "before",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "clientWidth": 1440
+  },
+  {
+    "label": "before",
+    "width": 390,
+    "scrollWidth": 390,
+    "clientWidth": 390
+  },
+  {
+    "label": "after",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "clientWidth": 1440
+  },
+  {
+    "label": "after",
+    "width": 390,
+    "scrollWidth": 390,
+    "clientWidth": 390
+  }
+]
