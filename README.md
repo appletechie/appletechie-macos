@@ -3,7 +3,7 @@
 A stunning, interactive macOS-inspired portfolio website built with Next.js and Tailwind CSS.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Next.js](https://img.shields.io/badge/Next.js-13%2B-black)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC)](https://tailwindcss.com/)
 
 ![macOS Portfolio Demo](public/macos-portfolio-demo.png)
@@ -46,23 +46,38 @@ Demo Link: [http://appletechie.dev](http://appletechie.dev)
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/apple-techie/apple-techie-macos.git
-cd macos-portfolio
-
-2. Install 
-
-npm install
-# or
-yarn install
-
-3. Run the development server:
-
-npm run dev
-# or
-yarn dev
-
+git clone https://github.com/appletechie/appletechie-macos.git
+cd appletechie-macos
 ```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server (it regenerates the file-system snapshot first, then starts `vinext dev`):
+
+```bash
+npm run dev
+```
+
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+### Other scripts
+
+| Script | What it does |
+| --- | --- |
+| `npm run build` | Regenerate the file-system snapshot, then `vinext build` |
+| `npm start` | `vinext start` |
+| `npm run build:next` | Plain `next build` |
+| `npm run lint` | `next lint` |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run deploy` | Regenerate the snapshot, then `vinext deploy` (Cloudflare Workers, see `wrangler.jsonc`) |
+
+### Environment variables (all optional)
+
+The Spotify, GitHub and weather widgets read these at runtime: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN`, `NEXT_PUBLIC_SPOTIFY_PROFILE`, `GITHUB_TOKEN`, `NEXT_PUBLIC_GITHUB_USER`, `WEATHER_API_BASE`, `GEOCODE_API_BASE`.
 
 ## 🎨 Customization
 
@@ -106,13 +121,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/apple-techie/apple-techie-macos/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/appletechie/appletechie-macos/issues).
 
 ## 📧 Contact
 
 apple-techie - [mail@appletechie.dev](mailto:mail@appletechie.dev)
 
-Project Link: [https://github.com/apple-techie/apple-techie-macos](https://github.com/apple-techie/apple-techie-macos)
+Project Link: [https://github.com/appletechie/appletechie-macos](https://github.com/appletechie/appletechie-macos)
 
 ---
 
